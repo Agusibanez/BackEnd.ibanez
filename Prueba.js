@@ -55,9 +55,27 @@ class ProductManager {
 const manager = new ProductManager();
 
 // Agregar productos
-manager.addProduct("Producto 1", 10);
-manager.addProduct("Producto 2", 20);
-manager.addProduct("Producto 3", 30);
+manager.addProduct(
+  "pitusas",
+  "son muy ricas, siempre en cualquier momento",
+  700,
+  "Sin imagen",
+  25
+);
+manager.addProduct(
+  "pepas",
+  "nunca fallan, las mejores galletitas",
+  1200,
+  "Sin imagen",
+  25
+);
+manager.addProduct(
+  "don satur",
+  "buenisimos con el mate",
+  900,
+  "Sin imagen",
+  25
+);
 
 // Obtener todos los productos
 console.log(manager.getAllProducts());
