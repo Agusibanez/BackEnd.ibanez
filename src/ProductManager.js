@@ -1,4 +1,5 @@
 const fs = require("fs");
+const { Module } = require("module");
 
 class ProductManager {
   constructor(filePath) {
@@ -9,7 +10,9 @@ class ProductManager {
   loadProducts() {
     try {
       const data = fs.readFileSync(this.filePath, "utf8");
-      return JSON.parse(data);
+      const products = JSON.parse(data);
+      console.log("Productos cargados:", products);
+      return products;
     } catch (err) {
       // Si no se puede leer el archivo o está vacío, devuelve un arreglo vacío
       return [];
@@ -58,22 +61,4 @@ class ProductManager {
   }
 }
 
-// Ejemplo de uso:
-const productManager = new ProductManager("productos.json");
-
-// Agregar un producto
-productManager.addProduct({
-  title: "Producto 1",
-  description: "Descripción del producto 1",
-  price: 10,
-  thumbnail: "url_del_thumbnail_1",
-  code: "ABC123",
-  stock: 50,
-});
-
-// Eliminar un producto por ID
-productManager.deleteProduct(1);
-
-// Obtener todos los productos después de la eliminación
-const allProducts = productManager.getProducts();
-console.log(allProducts);
+module.exports = ProductManager;
